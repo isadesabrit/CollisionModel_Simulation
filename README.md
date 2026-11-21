@@ -1,22 +1,23 @@
-# CollisionModel_Simulation
+# CollisionModel_Simulation 
+
+**Project Overview**
 This project uses Python and the Qiskit framework to simulate quantum coherence dynamics in an all-to-all collision model consisting of three system qubits and three reservoir qubits. The simulation investigates how interaction strength (eta) and reservoir depolarization (omega) affect coherent energy transport across repeated collision rounds.
 
+**Language**: Python
+**Framework**: Qiskit
+**Libraries**: NumPy, Qiskit Aer, Pandas, Matplotlib
+
 **Methodology**
-Each system-reservoir collision is modeled using a parameterized 4×4 partial-SWAP unitary matrix:
-[
-U(\eta)=\cos(\eta)I+i\sin(\eta)\mathrm{SWAP}
-]
-An 8×8 Hermitian Hamiltonian describes the evolution of the three-qubit system, with off-diagonal terms representing coherent energy transport and diagonal terms incorporating a magnetic-field parameter. 
 
-An iterative algorithm constructs a nine-qubit circuit, applying partial-SWAP operations between all nine system-reservoir qubit pairs, followed by reservoir depolarization and Hamiltonian evolution. After each collision round, the algorithm extracts the reduced density matrix of the system and calculates the magnitude of the off-diagonal element:
-[
-C(k)=|\rho_{1,4}(k)|
-]
-
-This element represents coherence between the computational basis states (|001\rangle) and (|100\rangle), corresponding to excitations localized at the first and third system qubits.
+The simulation constructs a 4×4 partial-SWAP unitary operator for system-reservoir interactions and an 8×8 Hermitian Hamiltonian for system evolution. An iterative algorithm constructs a nine-qubit circuit, applying partial-SWAP operations across all nine system-reservoir qubit pairs, followed by reservoir depolarization and Hamiltonian evolution. After each round, the reduced density matrix is extracted, and the magnitude of its off-diagonal element at indices [1, 4] is calculated to measure coherence between the computational basis states |001⟩ and |100⟩.
 
 **Results**
 
-A nested-loop parameter sweep evaluates five interaction strengths ((0\leq\eta\leq\pi/2)) and five reservoir depolarization levels ((0\leq\omega\leq1)) over 30 collision rounds.
+A nested-loop parameter sweep evaluates five interaction strengths (eta ranging from 0 to π/2) and five reservoir depolarization levels (omega ranging from 0 to 1) over 30 collision rounds.
 
-Results are organized using Pandas and visualized with Matplotlib. The simulations exhibit persistent coherence oscillations at low reservoir depolarization, while higher depolarization generally leads to faster coherence decay. These differences are especially pronounced at stronger interaction strengths.
+Numerical results are organized using Pandas and visualized with Matplotlib. The simulations show persistent coherence oscillations at low depolarization levels, while increased depolarization generally suppresses coherence, particularly at stronger interaction strengths.
+
+**How to Run**
+  1. Open the .ipynb notebook in Google Colab.
+  2. Run the installation cell to install the required Python packages.
+  3. Execute the remaining cells sequentially to generate the numerical results and coherence plots.

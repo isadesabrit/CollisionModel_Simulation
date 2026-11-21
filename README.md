@@ -1,10 +1,10 @@
 # CollisionModel_Simulation 
 
-**Project Overview**
+**Project Overview**\
 This project uses Python and the Qiskit framework to simulate quantum coherence dynamics in an all-to-all collision model consisting of three system qubits and three reservoir qubits. The simulation investigates how interaction strength (eta) and reservoir depolarization (omega) affect coherent energy transport across repeated collision rounds.
 
-**Language**: Python
-**Framework**: Qiskit
+**Language**: Python\
+**Framework**: Qiskit\
 **Libraries**: NumPy, Qiskit Aer, Pandas, Matplotlib
 
 **Methodology**
